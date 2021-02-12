@@ -21,7 +21,7 @@ class CagesController < ApplicationController
 
   # PUT /cages/:id
   def update
-    @cage.update(cage_params)
+    @cage.update!(cage_params)
     head :no_content
   end
 

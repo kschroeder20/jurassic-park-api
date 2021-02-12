@@ -8,7 +8,7 @@ module ExceptionHandler
     end
 
     rescue_from ActiveRecord::RecordInvalid do |e|
-      json_response({ message: "#{e.message}Make sure that the cage has room for a new animal" }, :unprocessable_entity)
+      json_response({ message: "Invalid record input", reason: "Something" }, :unprocessable_entity)
     end
   end
 end

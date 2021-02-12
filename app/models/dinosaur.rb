@@ -2,13 +2,13 @@ class Dinosaur < ApplicationRecord
   belongs_to :cage, dependent: :destroy
   validates :name, presence: true
   validates :species, presence: true
-  before_create :verify_cage_capacity
-  after_create :update_cage_capacity
+  before_save :verify_cage_capacity
+  after_save :update_cage_capacity
 
   private
 
   def verify_cage_capacity
-    unless self.cage.max_capacity -  self.cage.current_capacity > 0
+    if self.cage.max_capacity - self.cage.current_capacity < 1
       raise ActiveRecord::RecordInvalid.new(self)
     end
   end
