@@ -11,4 +11,5 @@ class Cage < ApplicationRecord
       raise StandardError.new "Invalid cage move. Cages must be active to move dinosaurs in and empty make inactive."
     end
   end
+
 end

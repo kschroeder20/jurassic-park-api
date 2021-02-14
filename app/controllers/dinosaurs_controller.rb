@@ -26,7 +26,7 @@ class DinosaursController < ApplicationController
 
   # DELETE /dinosaurs/:id
   def destroy
-    @dinosaur.destroy
+    @dinosaur.destroy!
     head :no_content
   end
 

@@ -37,6 +37,7 @@ group :development, :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'pry', '~> 0.13.1'
+  gem 'rubocop-rspec'
 end
 
 group :development do

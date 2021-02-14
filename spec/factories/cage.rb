@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryBot.define do
   factory :cage do
-    max_capacity { Faker::Number.number(10) }
-    current_occupancy { Faker::Number.number(10) }
+    max_capacity 100
+    active true
   end
 end

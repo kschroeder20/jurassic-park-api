@@ -1,5 +1,5 @@
 class Dinosaur < ApplicationRecord
-  belongs_to :cage, dependent: :destroy
+  belongs_to :cage
   validates :name, presence: true
   validates :species, presence: true
   before_save :verify_cage_capacity 

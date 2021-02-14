@@ -25,3 +25,8 @@ Dinosaur.create!(name: Faker::Name.name, species: 'Ankylosaurus', is_carnivor: t
 Dinosaur.create!(name: Faker::Name.name, species: 'Ankylosaurus', is_carnivor: true, cage: Cage.find(6))
 Dinosaur.create!(name: Faker::Name.name, species: 'Triceratops', is_carnivor: true, cage: Cage.find(7))
 Dinosaur.create!(name: Faker::Name.name, species: 'Triceratops', is_carnivor: true, cage: Cage.find(7))
+
+Cage.all.includes(:dinosaurs).each do |cage|
+    cage.current_occupancy = cage.dinosaurs.count
+    cage.save!
+end
