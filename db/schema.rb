@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_02_12_183353) do
 
   create_table "cages", force: :cascade do |t|
     t.integer "max_capacity", default: 0
-    t.integer "current_capacity", default: 0
-    t.boolean "power", default: false
+    t.integer "current_occupancy", default: 0
+    t.boolean "active", default: true
     t.string "created_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -20,7 +20,7 @@ class DinosaursController < ApplicationController
 
   # PUT /dinosaurs/:id
   def update
-    @dinosaur.update(dinosaur_params)
+    @dinosaur.update!(dinosaur_params)
     head :no_content
   end
 
@@ -28,6 +28,11 @@ class DinosaursController < ApplicationController
   def destroy
     @dinosaur.destroy
     head :no_content
+  end
+
+  # GET /dinosaurs/species/:species
+  def by_species
+    json_response(Dinosaur.where('lower(species) = ?', params['species'].downcase))
   end
 
   private

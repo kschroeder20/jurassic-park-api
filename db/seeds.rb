@@ -5,18 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Cage.destroy_all
+Dinosaur.destroy_all
 
-(1..10).each do |id|
-    cage = Cage.create!( max_capacity: Faker::Number.number(digits: 2) )
+(1..7).each do |id|
+    cage = Cage.create!( max_capacity: 3 )
 end
-
-(1..10).each do |id|
-  offset = rand(Cage.count)
-  rand_record = Cage.offset(offset).first
-    Dinosaur.create!(
-        name: Faker::Name.name,
-        species: Faker::Name.name,
-        cage: Cage.find(rand_record.id)
-
-    )
-end
+Dinosaur.create!(name: Faker::Name.name, species: 'Tyrannosaurus', cage: Cage.first)
+Dinosaur.create!(name: Faker::Name.name, species: 'Tyrannosaurus', cage: Cage.first)
+Dinosaur.create!(name: Faker::Name.name, species: 'Velociraptor', cage: Cage.second)
+Dinosaur.create!(name: Faker::Name.name, species: 'Velociraptor', cage: Cage.second)
+Dinosaur.create!(name: Faker::Name.name, species: 'Spinosaurus', cage: Cage.third)
+Dinosaur.create!(name: Faker::Name.name, species: 'Spinosaurus', cage: Cage.third)
+Dinosaur.create!(name: Faker::Name.name, species: 'Brachiosaurus', is_carnivor: true, cage: Cage.fourth)
+Dinosaur.create!(name: Faker::Name.name, species: 'Brachiosaurus', is_carnivor: true, cage: Cage.fourth)
+Dinosaur.create!(name: Faker::Name.name, species: 'Stegosaurus', is_carnivor: true, cage: Cage.fifth)
+Dinosaur.create!(name: Faker::Name.name, species: 'Stegosaurus', is_carnivor: true, cage: Cage.fifth)
+Dinosaur.create!(name: Faker::Name.name, species: 'Ankylosaurus', is_carnivor: true, cage: Cage.find(6))
+Dinosaur.create!(name: Faker::Name.name, species: 'Ankylosaurus', is_carnivor: true, cage: Cage.find(6))
+Dinosaur.create!(name: Faker::Name.name, species: 'Triceratops', is_carnivor: true, cage: Cage.find(7))
+Dinosaur.create!(name: Faker::Name.name, species: 'Triceratops', is_carnivor: true, cage: Cage.find(7))
