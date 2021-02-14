@@ -7,5 +7,5 @@ RSpec.describe Cage, type: :model do
   # Validation tests
   # ensure columns title and created_by are present before saving
   it { should validate_presence_of(:max_capacity) }
-  it { should validate_presence_of(:current_capacity) }
+  it { should validate_presence_of(:current_occupancy) }
 end

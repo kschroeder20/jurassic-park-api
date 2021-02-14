@@ -77,7 +77,7 @@ RSpec.describe 'Dinosaurs API', type: :request do
 
   # Test suite for PUT /dinosaurs/:id
   describe 'PUT /dinosaurs/:id' do
-    let(:valid_attributes) { { max_capacity: 10, current_capacity: 0 } }
+    let(:valid_attributes) { { max_capacity: 10, current_occupancy: 0 } }
 
     context 'when the record exists' do
       before { put "/dinosaurs/#{dinosaur_id}", params: valid_attributes }

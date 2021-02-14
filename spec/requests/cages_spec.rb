@@ -53,14 +53,14 @@ RSpec.describe 'Dinosaur API', type: :request do
   # Test suite for POST /cages
   describe 'POST /cages' do
     # valid payload
-    let(:valid_attributes) { { max_capacity: 10, current_capacity: 0 } }
+    let(:valid_attributes) { { max_capacity: 10, current_occupancy: 0 } }
 
     context 'when the request is valid' do
       before { post '/cages', params: valid_attributes }
 
       it 'creates a cage' do
         expect(json['max_capacity']).to eq(10)
-        expect(json['current_capacity']).to eq(0)
+        expect(json['current_occupancy']).to eq(0)
       end
 
       it 'returns status code 201' do
@@ -71,7 +71,7 @@ RSpec.describe 'Dinosaur API', type: :request do
 
   # Test suite for PUT /cages/:id
   describe 'PUT /cages/:id' do
-    let(:valid_attributes) { { max_capacity: 10, current_capacity: 0 } }
+    let(:valid_attributes) { { max_capacity: 10, current_occupancy: 0 } }
 
     context 'when the record exists' do
       before { put "/cages/#{cage_id}", params: valid_attributes }
